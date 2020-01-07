@@ -4,6 +4,11 @@ class Node {
         this.next = null;
         this.prev = null;
     }
+    swap() {
+        let holder = this.next;
+        this.next = this.prev;
+        this.prev = holder;
+    }
 }
 
 class DoubleLinkedList {
@@ -133,16 +138,11 @@ class DoubleLinkedList {
     }
 
     inverse() {
-        let swap = (node) => {
-            let holder = node.next;
-            node.next = node.prev;
-            node.prev = holder;
-        };
         let current = this._head;
         let index = 0;
         while (index < this.length) {
             let holder = current.next;
-            swap(current);
+            current.swap();
             if (current.prev === null) {
                 this._head = current;
             }
@@ -171,3 +171,4 @@ class DoubleLinkedList {
 }
 
 module.exports = DoubleLinkedList;
+
