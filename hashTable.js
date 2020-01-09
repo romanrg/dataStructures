@@ -1,10 +1,6 @@
 const LinkedList = require('./linkedList');
 
 class HashFunctions {
-    constructor(key) {
-        this._key = key
-    }
-
     static loseloseHash(key) {
         let hash = 0;
         for (let i = 0; i < key.length; i++) {
@@ -182,4 +178,8 @@ class HashTableWithLinearCollision extends HashTable{
         return undefined;
     }
 
+}
+
+module.exports = {
+    HashFunctions, HashTable, HashTableWithChainingCollision, HashTableWithLinearCollision
 }
